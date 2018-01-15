@@ -26,13 +26,16 @@ public class JavaApplication1 {
         int answer = random.nextInt(maxInt);
         System.out.println("***数当てゲームをしよう！***");
         System.out.print("0から" + maxInt + "までの数字だよ。\n予想した数字を入れてね。");
-        int loop = 7;
+        int loop = 8;
         System.out.println(loop + "回チャレンジできるよ。");
+        int usermin = 0;
+        int usermax = maxInt;
+        
         for (int i = 0; i < loop; i++) {
             System.out.printf("%d> ", i + 1);
             int guess = inputInt(maxInt);
             if (answer == guess) {
-                System.out.printf("正解！%dだったね。", answer);
+                System.out.printf("正解！%dだったね。\n", answer);
                 break;
             }
             if (i == loop - 1) {
@@ -41,9 +44,16 @@ public class JavaApplication1 {
             }
             if (answer < guess) {
                 System.out.println("もっと小さい数だよ！");
+                if (guess < usermax) {
+                    usermax = guess;
+                }
             } else {
                 System.out.println("もっと大きな数だよ！");
+                if (guess > usermin) {
+                    usermin = guess;
+                }
             }
+            System.out.printf("分かった範囲 %d:%d\n", usermin, usermax);
         }
     }
     private static String inputString() {
