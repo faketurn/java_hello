@@ -16,7 +16,7 @@ public class JavaApplication1 {
      */
     public static void main(String[] args) {
         // TODO code application logic here あいうえおd漢漢字
-        System.out.println("こんにちは");
+        System.out.print("こんにちは ");
         System.out.println("こんにちは");
 
     }
